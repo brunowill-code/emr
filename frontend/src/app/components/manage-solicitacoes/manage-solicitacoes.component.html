@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="top-container">
+    <app-tollbarheader></app-tollbarheader>
+    </div>
+    <div class="botton-container">
+    <div class="botton-top-container">
+        <h1 class="welcome-text">Solicitações</h1>
+        <p class="welcome-text">
+            Seja bem vindo! Aqui você acompanha as Solicitações
+        </p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="tela-ao-lado">
+        <div class="botton-left">
+            <div class="botton-mid-container">
+            </div>
+            <div class="botton-botton-container">
+                <app-table-solicitacao 
+                [solicitacaoList]="solicitacaoList"
+                (solicitacaoSelected)="onSolicitacaoSelected($event)"></app-table-solicitacao>
+            </div>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div class="botton-right">
+            @if (showSolicitacaoDetails) {
+                <app-details-solicitacao 
+                [solicitacao]="solicitacaoSelected"
+                (onConfirmarSolicitacao)="onConfirmarSolicitacao($event)"
+                (onRejeitarSolicitacao)="onRejeitarSolicitacao($event)"
+                ></app-details-solicitacao>
+            }
+        </div>
+    </div>
+    </div>
+    
+</div>
+
+
+<mat-divider [vertical]="true"></mat-divider>

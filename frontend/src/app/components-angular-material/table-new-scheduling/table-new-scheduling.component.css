@@ -1,0 +1,20 @@
+.table{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.atendimento-list-item{
+    cursor: pointer;
+}
+
+.box{
+    background: white;
+    padding: 2em;
+    box-shadow: 0 5px 25px 0
+                rgba(0,0, 0, .25);
+}
+.table-new-scheduling{
+    padding: 20px;
+
+}

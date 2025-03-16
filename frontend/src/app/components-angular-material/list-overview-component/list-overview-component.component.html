@@ -1,0 +1,68 @@
+<mat-list role="list">
+    @if (agendamento.status === 'agendado') {
+    <mat-list-item class="texto-centralizado">
+        <span class="mat-display-medium" >Detalhes da consulta</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Paciente :</span><span class="mat-h3">{{agendamento.nome_paciente}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Profissional da Saúde :</span><span class="mat-h3">{{agendamento.nome_profissional}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Especialidade :</span><span class="mat-h3"> {{ agendamento.especialidade }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Data :</span><span class="mat-h3"> {{ agendamento.data_agendamento | date}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Horário :</span><span class="mat-h3"> {{ agendamento.hora_agendamento | horario}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+        @if (user_type === 'tecnico' || user_type === 'admin') {
+        <button mat-stroked-button (click)="onDesmarcarConsulta(agendamento)">Desmarcar</button>
+        <button mat-flat-button (click)="onConfirmarPresenca(agendamento)">Confirmar Presença</button>
+        }
+    }
+    @else if (agendamento.status === 'finalizado') {
+        <mat-list-item class="texto-centralizado">
+            <span class="mat-display-medium" >Detalhes da consulta finalizada</span>
+        </mat-list-item>
+    }
+    @else if (agendamento.status === 'paciente_presente'){
+        <mat-list-item class="texto-centralizado">
+            <span class="mat-display-medium" >Detalhes da consulta</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="mat-display-medium">Paciente :</span><span class="mat-h3">{{agendamento.nome_paciente}}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="mat-display-medium">Profissional da Saúde :</span><span class="mat-h3">{{agendamento.nome_profissional}}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="mat-display-medium">Especialidade :</span><span class="mat-h3"> {{ agendamento.especialidade }}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="mat-display-medium">Data :</span><span class="mat-h3"> {{ agendamento.data_agendamento | date}}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+            <span class="mat-display-medium">Horário :</span><span class="mat-h3"> {{ agendamento.hora_agendamento | horario}}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        @if (user_type === 'medico') {
+            <button mat-stroked-button (click)="onIniciarConsulta(agendamento)">Iniciar Consulta</button>
+            }
+        }
+    
+</mat-list>
+

@@ -1,0 +1,17 @@
+<div class="solicitacoes">
+    <div class="top-container">
+        <app-tollbarheader></app-tollbarheader>
+    </div>
+    <div class="title">
+        <h1 class="text">Solicitações</h1>
+        <p class="text">Aqui você pode solicitar consultas e acompanhá-las.</p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="top">
+        <app-nova-solicitacao
+        (onNovaSolicitacao)="onNovaSolicitacao($event)"></app-nova-solicitacao>
+    </div>
+    <div class="botton">
+        <app-table-solicitacao [solicitacaoList]="solicitacaoList"></app-table-solicitacao>
+    </div>
+</div>

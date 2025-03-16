@@ -1,0 +1,43 @@
+    <div class="container">
+        <div class="top-container">
+        <app-tollbarheader></app-tollbarheader>
+        </div>
+        <div class="botton-container">
+        <div class="botton-top-container">
+            <h1 class="welcome-text">Calendário</h1>
+            <p class="welcome-text">
+                Seja bem vindo, Fulano de tal! Aqui você acompanha as consultas marcadas.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="tela-ao-lado">
+            <div class="botton-left">
+                <div class="botton-mid-container">
+                    <app-filter (onFilter)="onFilter($event)"></app-filter>
+                </div>
+                <div class="botton-botton-container">
+                    <app-table 
+                    [agendamentoList]="agendamentoListFiltered"
+                    (agendamentoSelected)="onAgendamentoSelected($event)" >
+                    </app-table>
+                </div>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div class="botton-right">
+                @if (showAgendamentoDetails) {
+                        <app-list-overview-component 
+                        (onDesmarcar)="onDesmarcarConsulta($event)"
+                        (onConfirmarPresenca)="onConfirmarPresenca($event)"
+                        [agendamento]="agendamentoSelected" 
+                        [showAgendamentoDetails]="showAgendamentoDetails">
+                        </app-list-overview-component>
+                    }
+                </div>
+        </div>
+        </div>
+        
+    </div>
+    
+
+    <mat-divider [vertical]="true"></mat-divider>
+    

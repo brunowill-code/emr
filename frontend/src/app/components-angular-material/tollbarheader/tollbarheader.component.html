@@ -1,0 +1,102 @@
+<div class="tollbarHeader">
+    <mat-toolbar class="custom-toolbar">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Prontuário Eletrônico</h1>
+
+        <span class="spacer"></span>
+    </mat-toolbar>
+  <div>
+    <mat-menu #menu="matMenu" class="custom-toolbar">
+    @if (user_type === 'tecnico') {
+            <button mat-menu-item (click)="navigateTo('agendamento')">
+                <mat-icon>home</mat-icon>
+                Página Inicial 
+            </button>
+            <button mat-menu-item (click)="navigateTo('agendar_consulta')">
+                <mat-icon>event</mat-icon>
+                Marcar Nova Consulta
+            </button>
+            <button mat-menu-item (click)="navigateTo('manage-solicitacoes')">
+                <mat-icon>mail_outline</mat-icon>
+                Solicitações
+            </button>
+            <button mat-menu-item (click)="navigateTo('perfil')">
+                <mat-icon>person</mat-icon>
+                Perfil
+            </button>
+            <button mat-menu-item (click)="navigateTo('config')">
+                <mat-icon>logout</mat-icon>
+                Sair
+            </button>
+    } @else if(user_type === 'admin' ){
+        <button mat-menu-item (click)="navigateTo('agendamento')">
+            <mat-icon>home</mat-icon>
+            Página Inicial 
+        </button>
+        <button mat-menu-item (click)="navigateTo('agendar_consulta')">
+            <mat-icon>event</mat-icon>
+            Marcar Nova Consulta
+        </button>
+        <button mat-menu-item (click)="navigateTo('manage-solicitacoes')">
+            <mat-icon>mail_outline</mat-icon>
+            Solicitações
+        </button>
+        <button mat-menu-item (click)="navigateTo('pacientes')">
+            <mat-icon>person</mat-icon>
+            Perfil
+        </button>
+        <button mat-menu-item (click)="navigateTo('pacientes')">
+            <mat-icon>person</mat-icon>
+            Admin
+        </button>
+        <button mat-menu-item (click)="navigateTo('config')">
+            <mat-icon>logout</mat-icon>
+            Sair
+        </button>
+    } @else if(user_type === 'medico'){
+        <button mat-menu-item (click)="navigateTo('agendamento')">
+            <mat-icon>home</mat-icon>
+            Página Inicial 
+        </button>
+        <button mat-menu-item (click)="navigateTo('agendar_consulta')">
+            <mat-icon>event</mat-icon>
+            Marcar Nova Consulta
+        </button>
+        <button mat-menu-item (click)="navigateTo('manage-solicitacoes')">
+            <mat-icon>mail_outline</mat-icon>
+            Solicitações
+        </button>
+        <button mat-menu-item (click)="navigateTo('pacientes')">
+            <mat-icon>person</mat-icon>
+            Perfil
+        </button>
+        <button mat-menu-item (click)="navigateTo('config')">
+            <mat-icon>logout</mat-icon>
+            Sair
+        </button>
+    }
+    @else if(user_type === 'paciente' ){
+        <button mat-menu-item (click)="navigateTo('paciente-dashboard')">
+            <mat-icon>home</mat-icon>
+            Página Inicial 
+        </button>
+        <button mat-menu-item (click)="navigateTo('solicitacoes')">
+            <mat-icon>mail_outline</mat-icon>
+            Solicitações
+        </button>
+        <button mat-menu-item (click)="navigateTo('perfil')">
+            <mat-icon>person</mat-icon>
+            Perfil
+        </button>
+        <button mat-menu-item (click)="navigateTo('config')">
+            <mat-icon>logout</mat-icon>
+            Sair
+        </button>
+    } 
+    </mat-menu>
+    </div>
+
+</div>
+

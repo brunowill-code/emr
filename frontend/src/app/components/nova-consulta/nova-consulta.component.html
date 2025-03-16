@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="top-container">
+    <app-tollbarheader></app-tollbarheader>
+  </div>
+  <div class="botton-container">
+    <div class="botton-top-container">
+      <h1 class="welcome-text">Agendar Nova Consulta</h1>
+      <p class="welcome-text">
+        Seja bem vindo, Fulano de tal! Verifique a disponibilidade para marcar uma
+        nova consulta.
+      </p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="tela-ao-lado">
+      <div class="botton-left">
+        <div class="botton-mid-container">
+        <app-filter-new-scheduling
+          (onFilterOptionNewSchedule)="onFilterOptionNewSchedule($event)"
+          ></app-filter-new-scheduling>
+        </div>
+        <div class="botton-botton-container">
+          <app-table-new-scheduling [agendaList]="agendaList"
+          (agendaSelectedEmitter)="onAgendaSelected($event)"
+          ></app-table-new-scheduling>
+        </div>
+      </div>
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="botton-right">
+        @if (showAgendaDetails) {
+          <app-list-new-scheduling
+            [agenda]="agendaSelected" 
+            [showAgendaDetails]="showAgendaDetails"
+            [filterOptions]="filterNewSchedulingOption"
+            (onMarcar)="onMarcarConsulta($event)"
+            >
+            
+          </app-list-new-scheduling>
+        }
+      </div>
+    </div>
+  </div>
+</div>

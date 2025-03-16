@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="top-container">
+    <app-tollbarheader></app-tollbarheader>
+    </div>
+    <div class="botton-container">
+    <div class="botton-top-container">
+        <h1 class="welcome-text">Calendário</h1>
+        <p class="welcome-text">
+            Seja bem vindo! Aqui você pode dar início ao atendimento.
+        </p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="tela-ao-lado">
+        <div class="botton-left">
+            <div class="botton-mid-container">
+            </div>
+            <div class="botton-botton-container">
+                <app-table [agendamentoList]="atendimentoList"
+                (agendamentoSelected)="onAtendimentoSelected($event)"></app-table>
+            </div>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div class="botton-right">
+            @if (showAtendimentoDetails) {
+                <app-list-overview-component 
+                [agendamento]="atendimentoSelected" 
+                [showAgendamentoDetails]="showAtendimentoDetails"
+                (onIniciarConsulta)="onIniciarConsulta($event)">
+                </app-list-overview-component>
+            }
+            
+        </div>
+    </div>
+    </div>
+    
+</div>
+
+
+<mat-divider [vertical]="true"></mat-divider>

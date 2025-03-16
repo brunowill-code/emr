@@ -1,0 +1,38 @@
+<mat-list role="list">
+    <mat-list-item class="texto-centralizado">
+        <span class="mat-display-medium" >Detalhes da Solicitação</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Paciente :</span><span class="mat-h3">{{solicitacao.nome_usuario}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Especialidade :</span><span class="mat-h3"> {{ solicitacao.tipo_especialidade }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Data :</span><span class="mat-h3"> {{ solicitacao.data_solicitacao | date}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Status :</span><span class="mat-h3"> {{ solicitacao.status }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div class="input">
+        <mat-form-field class="example-full-width">
+            <mat-label>Resposta</mat-label>
+            <input
+              matInput
+              placeholder="Ex. Consulta marcada para 10/03/2025 às 10:00"
+              [(ngModel)]="solicitacao.resposta"
+            />
+          </mat-form-field>
+    </div>
+    <div class="buttons">
+        <button mat-stroked-button (click)="onRejeitarSolicitacao(solicitacao)">Rejeitar</button>
+        <button mat-stroked-button (click)="onConfirmarSolicitacao(solicitacao)">Aceitar</button>
+
+    </div>
+</mat-list>
+

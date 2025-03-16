@@ -1,0 +1,58 @@
+<div class="filter">
+  <div class="form">
+    <div class="form_profissional">
+      <mat-form-field class="example-full-width">
+        <mat-label>Profissional da Saúde</mat-label>
+        <input
+          matInput
+          placeholder="Ex. João"
+          [(ngModel)]="filterOption.name_profissional"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form_especialidade">
+        <mat-form-field>
+            <mat-label>Especialidade</mat-label>
+            <mat-select [(ngModel)]="filterOption.especialidade">
+              @for ( especialidade of especialidadeList; track especialidade) {
+                <mat-option [value]="especialidade.value">{{especialidade.viewValue}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="form_datepicker">
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date" [(ngModel)]="filterOption.startDate"  />
+          <input matEndDate placeholder="End date" [(ngModel)]="filterOption.endDate" />
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+    @if (type_acess === 'paciente') {
+      <div class="form_status">
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select [(ngModel)]="filterOptionPaciente.status">
+            @for ( status of statusList; track status) {
+              <mat-option [value]="status.value">{{status.viewValue}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+    }
+    <div>
+      <div class="button">
+        <div class="example-button-row">
+          <button mat-flat-button (click)="onFilter()">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

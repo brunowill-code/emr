@@ -1,0 +1,32 @@
+<div class="paciente-dashboard">
+    <div class="top-container">
+        <app-tollbarheader></app-tollbarheader>
+    </div>
+    <div class="title">
+        <h1 class="text">Página do paciente</h1>
+        <p class="text">Aqui você acompanha as suas consultas.</p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="tela-divida">
+        <div class="left">
+            <div class="left-top">
+                <app-filter (onFilter)="onFilter($event)"></app-filter>
+            </div>
+            <div class="left-botton">
+                <app-table 
+                    [agendamentoList]="agendamentoListFiltered"
+                    (agendamentoSelected)="onAgendamentoSelected($event)"
+                ></app-table>
+            </div>
+
+        </div>
+        <div class="right">
+            @if (showAgendamentoDetails) {
+                <app-list-overview-component
+                [agendamento]="agendamentoSelected"
+                [showAgendamentoDetails]="showAgendamentoDetails"
+                ></app-list-overview-component>
+            }
+        </div>
+    </div>
+</div>

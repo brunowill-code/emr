@@ -1,0 +1,25 @@
+<mat-list role="list">
+    <mat-list-item class="texto-centralizado">
+        <span class="mat-display-medium" >Novo agendamento</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Data:</span><span class="mat-h3">{{agenda.data | date }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Horário :</span><span class="mat-h3">{{agenda.hora}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Nome do Profissional :</span><span class="mat-h3"> {{ agenda.nome_profissional }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item role="listitem">
+        <span class="mat-display-medium">Nome do Paciente :</span><span class="mat-h3"> {{ agenda.nome_paciente }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>
+
+
+<button mat-flat-button (click)="onMarcarConsulta(agenda)">Marcar Consulta</button>

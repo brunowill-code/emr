@@ -1,0 +1,26 @@
+.spacer {
+    flex: 1 1 auto;
+    background-color: #005CBB;
+
+  }
+
+.tollbarheader{
+    height: 100%;
+    width: 100%;
+    background-color: #005CBB;
+}
+
+.custom-toolbar {
+    background-color: #005CBB !important; /* Aqui vai a cor personalizada */
+    color: white; /* Cor do texto */
+}
+
+button[mat-icon-button] {
+    background-color: #005CBB; /* Fundo azul do botão */
+    border-radius: 5px; /* Arredondamento */
+    padding: 5px; /* Espaçamento interno */
+  }
+  
+  mat-icon {
+    color: white; /* Deixa as linhas brancas */
+  }

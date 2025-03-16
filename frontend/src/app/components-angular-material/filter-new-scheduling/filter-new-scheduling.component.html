@@ -1,0 +1,33 @@
+<div class="form">
+    <div class="form-line">
+      <div class="input">
+        <mat-form-field appearance="fill">
+          <mat-label>CPF do Paciente</mat-label>
+          <input matInput placeholder="Ex. João" [(ngModel)]="filterOptionNewScheduling.cpf_paciente"/>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="input">
+        <mat-form-field appearance="fill">
+          <mat-label>CRM do profissional</mat-label>
+          <input matInput placeholder="Ex. João" [(ngModel)]="filterOptionNewScheduling.crm_profissional"/>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="input">
+        <mat-form-field>
+          <mat-label>Escolha uma data</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="filterOptionNewScheduling.date_scheduling" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-button">
+            <button mat-flat-button (click)="onFilter()">Pesquisar</button>
+        </div>
+  </div>
+</div>
