@@ -13,7 +13,6 @@ This **Electronic Medical Record (EMR) system** is a fullstack web application d
 **Doctor Availability Management** – Healthcare providers can set their working hours and availability.  
 **Electronic Health Records (EHR)** – Secure storage and retrieval of patient history, prescriptions, and notes.  
 **Role-Based Access Control (RBAC)** – Different access levels for doctors, patients, and administrators.  
-**Real-time Notifications** – Email or SMS reminders for upcoming appointments.  
 **Search & Filtering** – Easily find patients, doctors, and past consultations.  
 **Secure Authentication** – JWT-based login system ensuring data privacy.  
 
