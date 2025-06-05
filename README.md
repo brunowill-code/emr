@@ -33,32 +33,32 @@ Git
 
 **1. Installation Steps**
 
-git clone https://github.com/brunowill-code/emr.git
-cd emr
+<git clone https://github.com/brunowill-code/emr.git>
+<cd emr>
 
 **2. Install backend dependencies**
 
-cd backend
-npm install
+<cd backend>
+<npm install>
 
 **3. Set up environment variables:**
 
 Create a .env file inside the backend folder with the following content:
 
-DataBase infos
-SECRET_KEY=your_secret_key
-AES_SECRET_KEY= your_aes_secret_key
+- DataBase infos
+- SECRET_KEY=your_secret_key
+- AES_SECRET_KEY= your_aes_secret_key
 
 **4. Start the backend server:**
-npm start
+<npm start>
 
 **5. Install frontend dependencies:**
 
-cd ../frontend
-npm install
+<cd ../frontend
+npm install>
 
 **6. Run the Angular frontend**
-ng serve
+<ng serve>
 
 **7. Access the application in your browser:**
-http://localhost:4200
+<http://localhost:4200>
