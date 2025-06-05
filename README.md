@@ -26,10 +26,10 @@ This **Electronic Medical Record (EMR) system** is a fullstack web application d
 Follow the steps below to clone and run the project on your local machine.
 
 **Prerequisites**
-Node.js (v18 or higher)
-Angular CLI → Install globally using npm install -g @angular/cli
-PostgreSQL
-Git
+- Node.js (v18 or higher)
+- Angular CLI → Install globally using npm install -g @angular/cli
+- PostgreSQL
+- Git
 
 **1. Installation Steps**
 ```
