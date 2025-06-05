@@ -51,15 +51,17 @@ Create a .env file inside the backend folder with the following content:
 
 **4. Start the backend server:**
 ```
-<npm start>
+npm start
 ```
 **5. Install frontend dependencies:**
-
-<cd ../frontend
-npm install>
-
+```
+cd ../frontend
+npm install
+```
 **6. Run the Angular frontend**
+```
 <ng serve>
+```
 
 **7. Access the application in your browser:**
 <http://localhost:4200>
