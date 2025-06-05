@@ -60,7 +60,7 @@ npm install
 ```
 **6. Run the Angular frontend**
 ```
-<ng serve>
+ng serve
 ```
 
 **7. Access the application in your browser:**
