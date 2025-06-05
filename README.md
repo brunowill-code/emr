@@ -32,15 +32,15 @@ PostgreSQL
 Git
 
 **1. Installation Steps**
-
-<git clone https://github.com/brunowill-code/emr.git>
-<cd emr>
-
+```
+git clone https://github.com/brunowill-code/emr.git
+cd emr
+```
 **2. Install backend dependencies**
-
-<cd backend>
-<npm install>
-
+```
+cd backend
+npm install
+```
 **3. Set up environment variables:**
 
 Create a .env file inside the backend folder with the following content:
@@ -50,8 +50,9 @@ Create a .env file inside the backend folder with the following content:
 - AES_SECRET_KEY= your_aes_secret_key
 
 **4. Start the backend server:**
+```
 <npm start>
-
+```
 **5. Install frontend dependencies:**
 
 <cd ../frontend
