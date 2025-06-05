@@ -1,0 +1,27 @@
+<div class="subjetivo">
+    <div class="input-container">
+      <mat-form-field appearance="outline" class="espaco-textarea full-width">
+        <mat-label>Subjetivo</mat-label>
+        <textarea [(ngModel)]="subjetivo.subjetivo" matInput rows="6" placeholder="Insira as informações subjetivas do profissional e as expressadas pelo paciente."></textarea>
+      </mat-form-field>
+        
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Motivo da consulta</mat-label>
+            <input type="text"
+                   placeholder="Digite o motivo"
+                   aria-label="Motivo da consulta"
+                   matInput
+                   [formControl]="ciapControl"
+                   [matAutocomplete]="auto"
+                   [(ngModel)]="subjetivo.CIAP2">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCiap" >
+              @for (option of filteredCiap | async; track option) {
+                <mat-option [value]="option">{{ option.codigo }} - {{ option.descricao }}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+          <button mat-stroked-button (click)="onSalvarSubjetivo()">Salvar</button>
+
+    </div>
+</div>

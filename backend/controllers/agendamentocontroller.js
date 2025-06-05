@@ -21,7 +21,7 @@ export const agenda = async (req,res) =>{
     if(type_acess === 'tecnico' || type_acess === 'admin' || type_acess === 'medico') {
         console.log('usuario autorizado');
         const agendamentos = await getAgendamentos();
-        //console.log(agendamentos);
+        console.log(agendamentos);
         res.json({agendamentos});
     }
     else{
@@ -126,9 +126,10 @@ export const solicitarAtendimento = async (req, res) =>{
     const type_acess = req.user.scopes;
     const id_paciente = req.user.id;
     const agendamento = req.body;
+    console.log('id', id_paciente);
     console.log(agendamento);
     if(type_acess === 'paciente'){
-        console.log('usuario é paciente');
+        console.log('usuario é paciente, vou solicitar');
         const solicitacao = await solicitarAtendimentoPaciente(id_paciente,agendamento);
         return res.json();
     } else {
@@ -156,7 +157,7 @@ export const getAllSolicitacoes = async(req,res) =>{
     const id = req.user.id;
     console.log(req.user.id);
     if(type_acess === 'tecnico' || type_acess === 'medico' || type_acess === 'admin'){
-        const solicitacao = await getAllSolicitacao(id);
+        const solicitacao = await getAllSolicitacao();
         return res.json(solicitacao);
     } else {
         return res.status(401).json({ message : 'Usuário não Autorizado'});
@@ -184,3 +185,4 @@ export const aceitarSolicitacao = async (req, res) =>{
         return res.status(401).json({ message : 'Usuário não Autorizado'});
     }
 }
+

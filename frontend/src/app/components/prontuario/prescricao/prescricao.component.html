@@ -1,0 +1,34 @@
+<div class="prescricao-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do Remédio</mat-label>
+      <input matInput [(ngModel)]="prescricaoAtual.nome">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Dosagem</mat-label>
+      <input matInput [(ngModel)]="prescricaoAtual.dosagem">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Intervalo (horas)</mat-label>
+      <input matInput type="number" [(ngModel)]="prescricaoAtual.intervalo">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Dias </mat-label>
+      <input matInput  [(ngModel)]="prescricaoAtual.dias">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="adicionarPrescricao()">Adicionar</button>
+  </div>
+  
+  <div *ngIf="prescricoes.length > 0" class="lista">
+    <h3>Prescrições</h3>
+    <ul>
+      <li *ngFor="let p of prescricoes">
+        {{ p.nome }} - {{ p.dosagem }} - a cada {{ p.intervalo }}h
+      </li>
+    </ul>
+  
+    <button mat-raised-button color="accent" (click)="gerarPDF()">Gerar PDF</button>
+  </div>

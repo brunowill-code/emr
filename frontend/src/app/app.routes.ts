@@ -12,13 +12,28 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ManageSolicitacoesComponent } from './components/manage-solicitacoes/manage-solicitacoes.component';
 import { ProntuarioComponent } from './components/prontuario/prontuario.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GerenciarAcessoComponent } from './components/gerenciar-acesso/gerenciar-acesso.component';
+import { AguardandoAcessoComponent } from './components/aguardando-acesso/aguardando-acesso.component';
+import { SOAPComponent } from './components/prontuario/soap/soap.component';
+import { SubjetivoComponent } from './components/prontuario/soap/subjetivo/subjetivo.component';
+import { HistoricoComponent } from './components/prontuario/historico/historico.component';
+import { ObjetivoComponent } from './components/prontuario/soap/objetivo/objetivo.component';
+import { AvaliacaoComponent } from './components/prontuario/soap/avaliacao/avaliacao.component';
+import { PlanoComponent } from './components/prontuario/soap/plano/plano.component';
+import { AtestadoComponent } from './components/prontuario/atestado/atestado.component';
+import { PrescricaoComponent } from './components/prontuario/prescricao/prescricao.component';
+import { ExameComponent } from './components/prontuario/exame/exame.component';
 
 
   
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    
+    {
+        path: 'aguardando-acesso',
+        component: AguardandoAcessoComponent,
+        canActivate: [authGuard,scopesGuard('aguardando_acesso')],
+    },
     // Rotas protegidas pelo AuthGuard e pelo scopesGuard
     { 
         path: 'admin-dashboard',
@@ -56,7 +71,47 @@ export const routes: Routes = [
     {
         path: 'prontuario',
         component: ProntuarioComponent,
-        canActivate:[authGuard,scopesGuard(['medico'])]
+       canActivate:[authGuard,scopesGuard(['medico'])],
+       children: [
+        { 
+            path: 'soap',
+            component: SOAPComponent,
+            children: [
+                {
+                    path: 'subjetivo',
+                    component: SubjetivoComponent,
+                },
+                {
+                    path: 'objetivo',
+                    component: ObjetivoComponent,
+                },
+                {
+                    path: 'avaliacao',
+                    component: AvaliacaoComponent,
+                },
+                {
+                    path: 'plano',
+                    component: PlanoComponent,
+                },
+                { path: '', redirectTo: 'subjetivo', pathMatch: 'full' }, // opcional: redireciona para soap por padrão
+                
+            ]
+        },
+        { path: 'historico', component: HistoricoComponent }, // opcional
+        { path: 'atestado', component: AtestadoComponent },
+        { path: 'prescricao', component: PrescricaoComponent },
+        { path: 'exames', component: ExameComponent },
+
+
+        { path: '', redirectTo: 'historico', pathMatch: 'full' } // opcional: redireciona para soap por padrão
+      ]
+  
+
+    },
+    {
+        path: 'gerenciar-acesso',
+        component: GerenciarAcessoComponent,
+        canActivate:[authGuard,scopesGuard(['admin','super_user'])]
 
     },
     {

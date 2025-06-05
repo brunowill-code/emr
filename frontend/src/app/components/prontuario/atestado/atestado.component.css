@@ -1,0 +1,43 @@
+.atestado {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .form-container div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  textarea {
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  

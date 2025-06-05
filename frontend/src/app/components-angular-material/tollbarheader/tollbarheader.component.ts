@@ -19,9 +19,13 @@ export class TollbarheaderComponent {
   private readonly _router = inject(Router);
 
 user_type:string =  this._authService.getUserScopes();
+profile_completed:string = this._authService.getUserProfile();
 
 navigateTo(page: string) {
   this._router.navigate([page]);
+}
+logout() {
+  this._authService.logout();
 }
 
 }

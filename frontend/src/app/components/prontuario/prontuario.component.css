@@ -1,99 +1,44 @@
-.container{
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-}
-
-.top-container{
-    width: 100%;
-    height: 10%;
-    background-color: #005CBB;
-
-    align-items: center;
-    color: white;
-}
-
-.botton-container{
-    display: flex;
-    width: 100%;
+.solicitacoes{
     height: 100%;
-    flex-direction: column;
-    background-color: white;
-}
-
-.botton-top-container{
     width: 100%;
-    height: 20%;
-
-}
-
-.botton-botton-container{
-    width: 100%;
-    height: 80%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 
 }
-
-.input{
+.title{
     padding: 20px;
 }
-.form-line{
+.text{
+    padding-bottom: 10px;
+}
+.top {
+    height: 20%;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 
-.form-filter{
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
+.botton{
+    height: 80%;
+    width: 100%;
+
 }
 
-.log-off{
-    background-color: red;
-}
-
-.top-option{
-    padding: 20px;
+.soap-button {
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
     cursor: pointer;
-}
-
-.top-title{
-    padding: 10 px;
-    padding-right: 740px;
-    font-size: 25px;
-
-}
-
-.welcome-text{
-    padding: 10px;
-    padding-left: 20px;
-}
-.botton-left{
-    height: 100%;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-}
-
-.botton-mid-container{
-    height: 20%;
+    transition: background-color 0.2s, border 0.2s;
     width: 100%;
-}
-
-.botton-botton-container{
-    height: 80%;
-    width: 100%;
-}
-
-.botton-right{
-    width: 30%;
-    height: 100%;
-}
-
-.tela-ao-lado{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-}
+  }
+  
+  .soap-button:hover {
+    background-color: #e0e0e0;
+  }
+  

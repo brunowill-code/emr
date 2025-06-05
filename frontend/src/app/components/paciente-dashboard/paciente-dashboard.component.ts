@@ -8,6 +8,8 @@ import { IAgendamento } from '../../interfaces/agendamento.interface';
 import { AgendamentoService } from '../../services/agendamento.service';
 import { ListOverviewComponentComponent } from "../../components-angular-material/list-overview-component/list-overview-component.component";
 import { filterAgendamentosList } from '../../utils/filter-agendamento';
+import { filterAgendamentosStatusList } from '../../utils/filter-agendamento-status';
+import { IFilterOptionsPaciente } from '../../interfaces/filter/filter-options-paciente.interface';
 
 @Component({
   selector: 'app-paciente-dashboard',
@@ -19,9 +21,17 @@ export class PacienteDashboardComponent {
 
   private readonly _agendamentoService = inject(AgendamentoService);
 
+  selectedAgendamentoFinalizado: IAgendamento | null = null;
 
-onFilter(filterOption: IFilterOptions) {
-  this.agendamentoListFiltered = filterAgendamentosList(filterOption, this.agendamentoList);
+  pdfs = {
+    atestadoBase64: '',
+    prescricaoBase64: '',
+    exameEncaminhamentoBase64: ''
+  };
+
+onFilter(filterOption: IFilterOptionsPaciente) {
+  console.log('filtro no pai', filterOption);
+  this.agendamentoListFiltered = filterAgendamentosStatusList(filterOption, this.agendamentoList);
 }
   agendamentoList: IAgendamento[] = [];
   
@@ -47,6 +57,19 @@ onFilter(filterOption: IFilterOptions) {
 
 showAgendamentoDetails : boolean = false;
 onAgendamentoSelected(agendamento: IAgendamento) {
+  // Buscar os PDFs
+  if (agendamento.status === 'finalizado') {
+
+  this._agendamentoService.getArquivosDaConsulta(agendamento.id_agendamento).subscribe({
+    next: (pdfs) => {
+      this.pdfs = pdfs;
+      console.log('PDFs recebidos:', pdfs);
+    },
+    error: (err) => {
+      console.error('Erro ao buscar PDFs:', err);
+    }
+  });
+}
   this.agendamentoSelected = agendamento;
   this.showAgendamentoDetails = true;
 

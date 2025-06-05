@@ -1,0 +1,21 @@
+<div class="form-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Exame ou Encaminhamento</mat-label>
+        <input matInput [(ngModel)]="exame" placeholder="Escreva o nome do exame">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>CID 10</mat-label>
+        <input matInput [(ngModel)]="cid" placeholder="Informe o CID 10">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Justificativa do Procedimento</mat-label>
+        <input matInput [(ngModel)]="justificativa" placeholder="Insira a justificativa do procedimento.">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Observações</mat-label>
+        <input matInput [(ngModel)]="observacoes" placeholder="Insira as observações.">
+    </mat-form-field>
+  
+    <button (click)="gerarPDF()">Gerar PDF</button>
+  </div>
+  

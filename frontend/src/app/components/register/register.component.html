@@ -1,1 +1,40 @@
-<p>register works!</p>
+<div class="register">
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="User.name" matInput placeholder="Ex. João" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input  [(ngModel)]="User.email" matInput placeholder="Ex. joao@gmail.com" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Cpf</mat-label>
+        <input  [(ngModel)]="User.cpf" matInput placeholder="Ex. 000.000.000-00" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label >Senha</mat-label>
+        <input 
+            [(ngModel)]="User.senha" 
+            (input)="validarSenha()"
+            matInput [type]="esconderSenha ? 'password' : 'text'"
+            placeholder="Digite sua senha">
+        <button mat-icon-button
+          matSuffix
+          (click)="esconderSenha = !esconderSenha"
+          [attr.aria-label]="'Mostrar senha'"
+          [attr.aria-pressed]="!esconderSenha">
+    <mat-icon>{{ esconderSenha ? 'visibility_off' : 'visibility' }}</mat-icon>
+  </button>
+    </mat-form-field>
+    <div class="senha-validacao">
+        <p [class.valido]="temMinimo" [class.invalido]="!temMinimo">• Mínimo 8 caracteres</p>
+        <p [class.valido]="temMaiuscula" [class.invalido]="!temMaiuscula">• Pelo menos uma letra maiúscula</p>
+        <p [class.valido]="temMinuscula" [class.invalido]="!temMinuscula">• Pelo menos uma letra minúscula</p>
+        <p [class.valido]="temNumero" [class.invalido]="!temNumero">• Pelo menos um número</p>
+        <p [class.valido]="temEspecial" [class.invalido]="!temEspecial">• Pelo menos um caractere especial</p>
+      </div>
+    <div class="botao">
+        <button mat-flat-button class="teste" (click)="onRegister()">Registrar</button>
+        <button mat-stroked-button (click)="onVoltar()">Voltar</button>
+    </div>
+</div>

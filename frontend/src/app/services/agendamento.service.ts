@@ -109,4 +109,18 @@ export class AgendamentoService {
       tap(resp => console.log('Dados Recebidos no Front:', resp)) // Debug para ver a resposta no console
     )
   }
+
+  getArquivosDaConsulta(agendamentoId: number) {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('acess-token'));
+  
+    const params = { agendamentoId: agendamentoId };
+  
+    return this._httpClient.get<{
+      atestadoBase64: string;
+      prescricaoBase64: string;
+      exameEncaminhamentoBase64: string;
+    }>('http://localhost:3000/api/get-arquivos-consultas', { headers, params }).pipe(
+      tap(resp => console.log('Dados Recebidos no Front:', resp))
+    );
+  }
 }

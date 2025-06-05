@@ -1,0 +1,21 @@
+.objetivo {
+    padding: 24px;
+    max-width:5000px;
+    margin: 0 auto; /* centraliza horizontalmente */
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+  .padding{
+    padding: 20px;
+  }
+
+  .espaco-textarea textarea {
+    line-height: 1.8;      /* Aumenta o espaço entre as linhas */
+    padding: 12px;         /* Dá mais espaço interno */
+    font-size: 16px;       /* Deixa o texto mais legível */
+    font-family: Roboto, sans-serif;
+    resize: vertical;      /* Permite redimensionar verticalmente se quiser */
+  }

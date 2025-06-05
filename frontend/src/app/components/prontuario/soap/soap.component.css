@@ -1,0 +1,41 @@
+.soap{
+    display: flex;
+    height: 100%;
+
+}
+
+.left-side{
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    width: 200px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.right-side{
+    height: 100%;
+    width: 90%;
+}
+
+.soap-button {
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s, border 0.2s;
+    width: 100%;
+  }
+  
+  .soap-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  

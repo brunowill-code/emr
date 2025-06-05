@@ -7,7 +7,7 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-login',
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
@@ -29,18 +29,38 @@ export class LoginComponent {
      this._authService.login( this.loginForm.value.username, this.loginForm.value.password).subscribe({
       next: (_) =>{
         const role = this._authService.getUserScopes(); // Obtém o primeiro elemento do array scopes corretamente
-        console.log(role);
+        const profile = this._authService.getUserProfile();
+
+        console.log('role',role);
         switch (role) {
+          case 'aguardando_acesso':
+            console.log('aguardando acesso');
+            this._router.navigate(['/aguardando-acesso']);
+            break;
+
           case 'admin':
             console.log("🔀 Redirecionando para /admin-dashboard");
             this._router.navigate(['/agendamento']);
             break;
 
-          case 'medico':
-            console.log("🔀 Redirecionando para /manager-dashboard");
-            this._router.navigate(['/medico-dashboard']);
-            console.log("✅ Navegação chamada com sucesso");
+          case 'super_user':
+            console.log("🔀 Redirecionando para /super-user");
+            this._router.navigate(['/gerenciar-acesso']);
             break;
+
+          case 'medico':
+            if(!profile){
+              console.log('Perfil Incompleto');
+              this._router.navigate(['/perfil']);
+              break;
+            }
+            else{
+              console.log("🔀 Redirecionando para /manager-dashboard");
+              this._router.navigate(['/medico-dashboard']);
+              console.log("✅ Navegação chamada com sucesso");
+              break;
+            }
+            
 
           case 'tecnico':
             console.log("🔀 Redirecionando para /employee-dashboard");

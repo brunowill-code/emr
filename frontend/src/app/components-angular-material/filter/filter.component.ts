@@ -71,8 +71,7 @@ especialidadeList: Especialidade[] = [
 statusList: status[] = [
   {value: undefined, viewValue: ''},
   {value: 'finalizado', viewValue: 'Finalizado'},
-  {value: 'analise', viewValue: 'Em análise '},
-  {value: 'marcado', viewValue: 'Marcado'},
+  {value: 'agendado', viewValue: 'Agendado'},
 ]
 
 }

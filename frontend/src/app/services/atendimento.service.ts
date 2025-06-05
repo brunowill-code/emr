@@ -24,9 +24,11 @@ export class AtendimentoService {
         );
   }
 
-  iniciarAtendimento(atendimento: IAgendamento):Observable<void>{
+  
+
+  iniciarAtendimento(atendimento: IAgendamento):Observable<{ sucesso: boolean; id_consulta: number ; id_prontuario:number}>{
     const headers = new HttpHeaders().set('Authorization','Bearer ' + localStorage.getItem('acess-token'));
-    return this._httpClient.post<void>('http://localhost:3000/api/iniciar-atendimento', atendimento, {headers}).pipe(
+    return this._httpClient.post<{ sucesso: boolean; id_consulta: number; id_prontuario:number }>('http://localhost:3000/api/iniciar-atendimento', atendimento, {headers}).pipe(
       tap(() => console.log('Presença confirmada com sucesso')) // Apenas para debug
     )
   }

@@ -1,30 +1,29 @@
-<div class="container">
+<div class="solicitacoes">
     <div class="top-container">
-    <app-tollbarheader></app-tollbarheader>
+        <app-tollbarheader></app-tollbarheader>
     </div>
-    <div class="botton-container">
-    <div class="botton-top-container">
-        <h1 class="welcome-text">Prontuário</h1>
-        <p class="welcome-text">
-        </p>
+    <div class="title">
+        <h1 mat-stroked-button routerLink="soap" routerLinkActive="active">Prontuário</h1>
+        <p class="text">Acompanhe as consultas do paciente</p>
     </div>
     <mat-divider></mat-divider>
-    <div class="tela-ao-lado">
-        <div class="botton-left">
-            <div class="botton-mid-container">
-            </div>
-            <div class="botton-botton-container">
-               
-            </div>
-        </div>
-        <mat-divider [vertical]="true"></mat-divider>
-        <div class="botton-right">
-           
-        </div>
+    <div class="top">        
+
+        <button class="soap-button" [routerLink]="['/prontuario/historico']" routerLinkActive="active" (click)="deactivateSoap()">Histórico</button>
+        <button class="soap-button" [routerLink]="['/prontuario/soap']" routerLinkActive="active" (click)="activateSoap()">SOAP</button>
+        <button class="soap-button" [routerLink]="['/prontuario/atestado']" routerLinkActive="active" (click)="deactivateSoap()">Atestado</button>
+        <button class="soap-button" [routerLink]="['/prontuario/prescricao']" routerLinkActive="active" (click)="deactivateSoap()">Prescrição</button>
+        <button class="soap-button" [routerLink]="['/prontuario/exames']" routerLinkActive="active" (click)="deactivateSoap()">Exames e Encaminhamentos</button>
+
+        <button class="soap-button"  (click)="onFinalizarConsulta()">Finalizar</button>
+
+        
     </div>
+    <mat-divider></mat-divider>
+    <div class="botton">
+        @if (soapactivated) {
+            <button class="soap-button" (click)="onSalvarSoap()">Salvar</button>
+        }
+        <router-outlet></router-outlet>
     </div>
-    
 </div>
-
-
-<mat-divider [vertical]="true"></mat-divider>

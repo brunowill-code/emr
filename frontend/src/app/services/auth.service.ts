@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import {jwtDecode} from "jwt-decode";
 import { map, Observable } from "rxjs";
 
@@ -8,6 +9,8 @@ import { map, Observable } from "rxjs";
 })
 export class AuthService {
     private readonly _httpClient = inject(HttpClient);
+    private readonly router = inject(Router);   // injeção do Router
+
 
         //faz um post ao servidor, enviando username e password e espera uma resposta que deve conter o token
         //usa o pipe para manipular a resposta
@@ -41,7 +44,6 @@ export class AuthService {
     }
     getUserScopes():string{
         const token = localStorage.getItem('acess-token');
-        console.log('token no getuserscopes',token);
         if(!token) {
             return "";
         } 
@@ -49,4 +51,16 @@ export class AuthService {
         return decoded.scopes; 
     }
 
+    getUserProfile():string{
+        const token = localStorage.getItem('acess-token');
+        if(!token) {
+            return "";
+        } 
+        const decoded: any = jwtDecode(token);
+        return decoded.profile;
+    }
+    logout(): void {
+        localStorage.removeItem('acess-token'); // remove o token
+        this.router.navigate(['/']); // redireciona para página inicial
+      }
 }

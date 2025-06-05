@@ -10,7 +10,7 @@
     <div class="tela-divida">
         <div class="left">
             <div class="left-top">
-                <app-filter (onFilter)="onFilter($event)"></app-filter>
+                <app-filter (onFilterPaciente)="onFilter($event)"></app-filter>
             </div>
             <div class="left-botton">
                 <app-table 
@@ -24,6 +24,7 @@
             @if (showAgendamentoDetails) {
                 <app-list-overview-component
                 [agendamento]="agendamentoSelected"
+                [pdfs]="pdfs"
                 [showAgendamentoDetails]="showAgendamentoDetails"
                 ></app-list-overview-component>
             }

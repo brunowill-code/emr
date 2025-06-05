@@ -1,0 +1,40 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let consulta of consultas">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        CIAP2: {{ consulta.subjetivo?.CIAP2?.descricao || 'Sem CIAP2' }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ consulta.nome_profissional }} | {{ consulta.data_consulta | date: 'shortDate' }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>
+      <h3>Subjetivo</h3>
+      <p><strong>CIAP2:</strong> {{ consulta.subjetivo?.CIAP2?.descricao }}</p>
+      <p><strong>Descrição:</strong> {{ consulta.subjetivo?.subjetivo }}</p>
+    </div>
+
+    <div>
+      <h3>Objetivo</h3>
+      <p><strong>Descrição:</strong> {{consulta.objetivo?.objetivo}}</p>
+      <p><strong>Peso:</strong> {{ consulta.objetivo?.peso }}</p>
+      <p><strong>Altura:</strong> {{ consulta.objetivo?.altura }}</p>
+      <p><strong>Glicemia:</strong> {{ consulta.objetivo?.glicemia }}</p>
+      <p><strong>Temperatura:</strong> {{ consulta.objetivo?.temperatura }}</p>
+      <p><strong>Pressão Arterial:</strong> {{ consulta.objetivo?.pressaoArterial }}</p>
+    </div>
+
+    <div>
+      <h3>Avaliação</h3>
+      <p><strong>CID:</strong> {{ consulta.avaliacao?.CID }}</p>
+      <p><strong>Avaliação:</strong> {{ consulta.avaliacao?.avaliacao }}</p>
+    </div>
+
+    <div>
+      <h3>Plano</h3>
+      <p><strong>Condutas:</strong> {{ consulta.plano?.condutas }}</p>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>

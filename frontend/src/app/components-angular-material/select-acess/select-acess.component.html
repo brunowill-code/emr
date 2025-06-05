@@ -1,0 +1,11 @@
+<mat-form-field>
+    <mat-label>Tipo de acesso</mat-label>
+    <mat-select (selectionChange)="selecionarAcesso($event.value)">
+      @for (acesso of acessos; track acesso) {
+        <mat-option [value]="acesso.value">{{acesso.viewValue}}</mat-option>
+      }
+    </mat-select>
+</mat-form-field>
+
+<button mat-flat-button (click)="onGiveAcess()">Dar Acesso</button>
+

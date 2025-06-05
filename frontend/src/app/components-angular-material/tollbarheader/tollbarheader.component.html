@@ -22,11 +22,7 @@
                 <mat-icon>mail_outline</mat-icon>
                 Solicitações
             </button>
-            <button mat-menu-item (click)="navigateTo('perfil')">
-                <mat-icon>person</mat-icon>
-                Perfil
-            </button>
-            <button mat-menu-item (click)="navigateTo('config')">
+            <button mat-menu-item (click)="logout()">
                 <mat-icon>logout</mat-icon>
                 Sair
             </button>
@@ -43,39 +39,40 @@
             <mat-icon>mail_outline</mat-icon>
             Solicitações
         </button>
-        <button mat-menu-item (click)="navigateTo('pacientes')">
-            <mat-icon>person</mat-icon>
-            Perfil
+        <button mat-menu-item (click)="navigateTo('gerenciar-acesso')">
+            <mat-icon>settings</mat-icon>
+            Gerenciar Acesso
         </button>
-        <button mat-menu-item (click)="navigateTo('pacientes')">
-            <mat-icon>person</mat-icon>
-            Admin
-        </button>
-        <button mat-menu-item (click)="navigateTo('config')">
+        <button mat-menu-item (click)="logout()">
             <mat-icon>logout</mat-icon>
             Sair
         </button>
     } @else if(user_type === 'medico'){
-        <button mat-menu-item (click)="navigateTo('agendamento')">
-            <mat-icon>home</mat-icon>
-            Página Inicial 
-        </button>
-        <button mat-menu-item (click)="navigateTo('agendar_consulta')">
-            <mat-icon>event</mat-icon>
-            Marcar Nova Consulta
-        </button>
-        <button mat-menu-item (click)="navigateTo('manage-solicitacoes')">
-            <mat-icon>mail_outline</mat-icon>
-            Solicitações
-        </button>
-        <button mat-menu-item (click)="navigateTo('pacientes')">
-            <mat-icon>person</mat-icon>
-            Perfil
-        </button>
-        <button mat-menu-item (click)="navigateTo('config')">
-            <mat-icon>logout</mat-icon>
-            Sair
-        </button>
+        @if(!profile_completed){
+            <button mat-menu-item >
+                Complete seu perfil para poder navegar
+            </button>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                Sair
+            </button>
+        }
+        @else {
+            <button mat-menu-item (click)="navigateTo('medico-dashboard')">
+                <mat-icon>home</mat-icon>
+                Página Inicial 
+            </button>
+            <!--<button mat-menu-item (click)="navigateTo('agendamento')">
+                <mat-icon>event</mat-icon>
+                Marcar Nova Consulta
+            </button> 
+            -->
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                Sair
+            </button>
+        }
+        
     }
     @else if(user_type === 'paciente' ){
         <button mat-menu-item (click)="navigateTo('paciente-dashboard')">
@@ -86,11 +83,7 @@
             <mat-icon>mail_outline</mat-icon>
             Solicitações
         </button>
-        <button mat-menu-item (click)="navigateTo('perfil')">
-            <mat-icon>person</mat-icon>
-            Perfil
-        </button>
-        <button mat-menu-item (click)="navigateTo('config')">
+        <button mat-menu-item (click)="logout()">
             <mat-icon>logout</mat-icon>
             Sair
         </button>

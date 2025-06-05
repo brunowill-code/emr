@@ -1,0 +1,30 @@
+<div class="form-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="nome">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>CPF</mat-label>
+      <input matInput [(ngModel)]="cpf">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Data</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="data">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Hora</mat-label>
+      <input matInput type="time" [(ngModel)]="hora">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Dias de Atestado</mat-label>
+      <input matInput type="number" [(ngModel)]="diasAtestado">
+    </mat-form-field>
+  </div>
+  
+  <button mat-raised-button color="primary" (click)="gerarPDF()">Gerar PDF</button>

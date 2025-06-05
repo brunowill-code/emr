@@ -1,0 +1,19 @@
+<div class="table">
+    <table mat-table [dataSource]="dataSource" class="box atendimento-list-item">
+  
+      <ng-container matColumnDef="nome_usuario">
+        <th mat-header-cell *matHeaderCellDef> Nome do Usuário </th>
+        <td mat-cell *matCellDef="let element" (click)="onUserSelected(element)"> {{element.nome_usuario}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="email" class="atendimento-list-item">
+        <th mat-header-cell *matHeaderCellDef> Email do Usuário </th>
+        <td mat-cell *matCellDef="let element" (click)="onUserSelected(element)"> {{element.email }} </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  </div>

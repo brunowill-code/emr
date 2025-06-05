@@ -21,25 +21,25 @@ import { TollbarheaderComponent } from "../../components-angular-material/tollba
   styleUrl: './nova-consulta.component.css'
 })
 export class NovaConsultaComponent {
-onMarcarConsulta(agenda: IAgenda) {
-  console.log('Agenda no pai:',agenda );
-  const type_acess =  this._authService.getUserScopes();
-  console.log('back chamado')
-  this._agendamentoService.marcarConsulta(agenda)
-  .subscribe({
-    next: () => {
-      console.log('backend chamado');
-    },
-    error: (err) => {
-      console.error('Erro ao marcar consulta:', err);
-      if (err.status === 401) {
-        // O token está ausente ou expirado, trate o erro adequadamente.
-        alert('Sua sessão expirou, por favor, faça login novamente.');
-      }
-    }
-  })
-  ;
-}
+  onMarcarConsulta(agenda: IAgenda) {
+    console.log('Agenda no pai:', agenda);
+    const type_acess = this._authService.getUserScopes();
+    console.log('back chamado');
+    
+    this._agendamentoService.marcarConsulta(agenda)
+      .subscribe({
+        next: () => {
+          console.log('backend chamado');
+          this.getAgenda(this.filterNewSchedulingOption); // Atualiza os horários após marcação
+        },
+        error: (err) => {
+          console.error('Erro ao marcar consulta:', err);
+          if (err.status === 401) {
+            alert('Sua sessão expirou, por favor, faça login novamente.');
+          }
+        }
+      });
+  }
 
 
   private readonly _router = inject(Router);

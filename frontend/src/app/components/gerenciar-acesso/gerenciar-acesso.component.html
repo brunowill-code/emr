@@ -1,0 +1,36 @@
+<div class="gerenciar-acesso">
+    <div class="top-container">
+        <app-tollbarheader></app-tollbarheader>
+    </div>
+    <div class="botton-container">
+        <div class="botton-top-container">
+            <h1 class="welcome-text">Gerenciar Acessos</h1>
+            <p class="welcome-text">
+                Aqui você pode gerir o acesso dos usuários.
+            </p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="tela-ao-lado">
+            <div class="botton-left">
+                <div class="botton-mid-container">
+                </div>
+                <div class="botton-botton-container">
+                    <app-table-users 
+                    [usersList]="usersList"
+                    (userSelected)="onUserSelected($event)"></app-table-users>
+                </div>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div class="botton-right">
+            @if (showUserDetails) {
+                <mat-list-item role="listitem">
+                    <span class="mat-display-medium">Usuario : </span><span class="mat-h3">{{userSelected.nome_usuario}}</span>
+                </mat-list-item>
+                <app-select-acess
+                (onAcessSelected)="onGiveAcess($event)"
+                [usuario]="userSelected"></app-select-acess>
+            }    
+            </div>
+        </div>
+        </div>
+    

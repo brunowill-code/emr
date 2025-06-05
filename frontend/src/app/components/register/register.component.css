@@ -1,0 +1,30 @@
+.register{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.botao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teste{
+    margin: 10px;
+}
+
+.senha-validacao p {
+    margin: 2px 0;
+    font-size: 14px;
+  }
+  
+  .valido {
+    color: green;
+  }
+  
+  .invalido {
+    color: red;
+  }

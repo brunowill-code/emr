@@ -22,7 +22,7 @@ export class TableSolicitacaoComponent implements AfterViewInit, OnChanges    {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['nome_usuario','data_solicitacao', 'tipo_especialidade', 'status'];
+  displayedColumns: string[] = ['data_solicitacao', 'tipo_especialidade', 'status'];
   dataSource = new MatTableDataSource<ISolicitacao>();
 
   constructor(private cdr: ChangeDetectorRef) {}

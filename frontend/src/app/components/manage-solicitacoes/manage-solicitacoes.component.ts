@@ -48,6 +48,7 @@ constructor(){
     this._agendamentoService.rejeitarSolicitacao(solicitacao).subscribe({
       next:() => {
         console.log('Backend chamado');
+        this.getSolicitacoes();
       },
       error: (err) =>{
         console.error('Erro ao buscar agendamentos:', err);
@@ -59,6 +60,7 @@ constructor(){
     this._agendamentoService.aceitarSolicitacao(solicitacao).subscribe({
       next:() => {
         console.log('Backend chamado');
+        this.getSolicitacoes();
       },
       error: (err) =>{
         console.error('Erro ao buscar agendamentos:', err);

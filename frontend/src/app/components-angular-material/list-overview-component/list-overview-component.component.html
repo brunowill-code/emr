@@ -31,8 +31,28 @@
     }
     @else if (agendamento.status === 'finalizado') {
         <mat-list-item class="texto-centralizado">
-            <span class="mat-display-medium" >Detalhes da consulta finalizada</span>
-        </mat-list-item>
+            <span class="mat-display-medium">Detalhes da consulta finalizada</span>
+          </mat-list-item>
+
+          <div *ngIf="!pdfs.atestadoBase64 && !pdfs.prescricaoBase64 && !pdfs.exameEncaminhamentoBase64">
+            <p>Não foram gerados documentos nessa consulta.</p>
+          </div>
+          
+          <div *ngIf="pdfs.atestadoBase64 || pdfs.prescricaoBase64 || pdfs.exameEncaminhamentoBase64">
+            <h3>Documentos disponíveis</h3>
+          
+            <button mat-button color="primary" (click)="baixarPdfDeDataUri(pdfs.atestadoBase64, 'atestado_medico.pdf')">
+              Baixar Atestado
+            </button>
+          
+            <button mat-button color="primary" (click)="baixarPdfDeDataUri(pdfs.exameEncaminhamentoBase64, 'exame_encaminhamento.pdf')">
+              Baixar Encaminhamento
+            </button>
+          
+            <button mat-button color="primary" (click)="baixarPdfDeDataUri(pdfs.prescricaoBase64, 'prescricao.pdf')">
+              Baixar Prescrição
+            </button>
+          </div>
     }
     @else if (agendamento.status === 'paciente_presente'){
         <mat-list-item class="texto-centralizado">

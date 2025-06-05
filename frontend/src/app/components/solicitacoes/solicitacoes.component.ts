@@ -38,18 +38,18 @@ export class SolicitacoesComponent {
 
   private readonly _agendamentoService = inject(AgendamentoService);
 
-onNovaSolicitacao(filterOptionPaciente: IFilterOptions) {
-  console.log('on solicitacao : ',filterOptionPaciente);
-  this._agendamentoService.onSolicitar(filterOptionPaciente).subscribe({
-    next: () =>{
-      console.log('backend chamado');
-    },
-    error: (err) => {
-      console.error('Erro ao desmarcar consulta:', err);
-    }
-  })
-
-}
+  onNovaSolicitacao(filterOptionPaciente: IFilterOptions) {
+    console.log('on solicitacao : ', filterOptionPaciente);
+    this._agendamentoService.onSolicitar(filterOptionPaciente).subscribe({
+      next: () => {
+        console.log('backend chamado');
+        this.getSolicitacoes(); // Atualiza a lista de solicitações
+      },
+      error: (err) => {
+        console.error('Erro ao desmarcar consulta:', err);
+      }
+    });
+  }
 onFilterPaciente($event: IFilterOptionsPaciente) {
   throw new Error('Method not implemented.');
 }

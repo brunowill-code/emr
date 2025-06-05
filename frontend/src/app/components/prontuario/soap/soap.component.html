@@ -1,0 +1,14 @@
+<div class="soap">
+    <div class="left-side">
+        <button class="soap-button" (click)="goTo('subjetivo')" routerLinkActive="active" >Subjetivo</button>
+        <button class="soap-button" (click)="goTo('objetivo')" routerLinkActive="active">Objetivo</button>
+        <button class="soap-button" (click)="goTo('avaliacao')" routerLinkActive="active">Avaliação</button>
+        <button class="soap-button" (click)="goTo('plano')" routerLinkActive="active">Plano</button>
+
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <div class="right-side">
+        <router-outlet></router-outlet>
+    </div>
+</div>

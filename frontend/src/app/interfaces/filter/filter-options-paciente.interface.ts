@@ -3,5 +3,5 @@ export interface IFilterOptionsPaciente{
     especialidade: string | undefined;
     startDate: Date | undefined;
     endDate: Date | undefined;
-    status: string | undefined;
+    status: 'agendado' | 'analise' | 'finalizado'| undefined;
 }

@@ -1,9 +1,8 @@
 import express from "express";
 import cors from "cors";
-import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import authRoutes from "./routes/authRoutes.js";
+import authRoutes from "./routes/routes.js";
 
 dotenv.config();
 const app = express();
@@ -13,7 +12,6 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-
 
 // Rotas
 app.use('/api', authRoutes);

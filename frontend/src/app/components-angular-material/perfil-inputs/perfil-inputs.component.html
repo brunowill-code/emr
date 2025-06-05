@@ -1,23 +1,22 @@
 <div class="perfil-inputs">
-    <div class="inputs">
-        <mat-form-field class="example-full-width input">
-        <mat-label>Nome</mat-label>
-        <input matInput placeholder="Ex. João" value="">
-    </mat-form-field>
-    <mat-form-field class="example-full-width input">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Ex. joao@gmail.com" value="">
-    </mat-form-field>
-    <mat-form-field class="example-full-width input">
-        <mat-label>CPF</mat-label>
-        <input matInput placeholder="Ex. Pizza" value="">
-    </mat-form-field>
-    <mat-form-field class="example-full-width input">
-        <mat-label>Senha</mat-label>
-        <input matInput placeholder="Ex. Pizza" value="">
-    </mat-form-field>
-    </div>
+    @if(type_acess === 'medico'){
+        <div class="inputs">
+            <mat-form-field class="example-full-width input">
+                <mat-label>CRM</mat-label>
+                <input matInput placeholder="Ex. João" value="" [(ngModel)]="perfilMedico.crm" >
+            </mat-form-field>
+          <mat-form-field class="example-full-width input">  
+          <mat-label>Especialidade</mat-label>
+            <mat-select [(ngModel)]="perfilMedico.especialidade" >
+                @for (especialidade of especialidadeList; track especialidade) {
+                <mat-option [value]="especialidade.value">{{especialidade.viewValue}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        </div>
+    }
+    
     <div class="perfil-button">
-        <button mat-flat-button>Atualizar</button>
+        <button mat-flat-button (click)="onAtualizarPerfil()">Atualizar</button>
     </div>
 </div>

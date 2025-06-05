@@ -1,0 +1,14 @@
+<div class="avaliacao">
+    <div class="input-container">
+        <mat-form-field appearance="outline" class="espaco-textarea full-width">
+            <mat-label>Avaliação</mat-label>
+            <textarea [(ngModel)]="avaliacao.avaliacao" matInput rows="6" placeholder="Insira impressões adicionais sobre a avaliação dos problemas/condições detectados."></textarea>
+        </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width padding ">
+        <mat-label>CID</mat-label>
+        <input [(ngModel)]="avaliacao.CID" matInput placeholder="Insira as informações relacionadas ao exame físico " >
+    </mat-form-field>
+    <button mat-stroked-button (click)="onSalvarAvaliacao()">Salvar</button>
+
+</div>
